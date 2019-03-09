@@ -20,8 +20,10 @@ def quit(sender):
     view.close()
     view.present()
 
-quitbuttom = ui.Button()
-quitbutton.title = 'QUIT'
-quitbutton.action = ui.quit
+resetbutton = ui.Button()
+resetbutton.title = 'reset button'
+resetbutton.action = quit
 
+view.add_subview(chordtxt)
+view.add_subview(resetbutton)
 view.present()
