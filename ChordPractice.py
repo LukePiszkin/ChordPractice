@@ -27,8 +27,6 @@ sixth_txt = 'An interval consisting of nine semitones'
 minor_seventh_txt = 'An interval consisting of ten semitones'
 major_seventh_txt = 'An interval consisting of eleven semitones'
 
-def callback():
-    print('Click!')
 
 chordtxt = tk.Label(root, width=25, height=3, text=chord, fg='blue',font='Verdana 14 bold')
 chordtxt.pack()
