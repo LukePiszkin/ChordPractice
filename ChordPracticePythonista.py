@@ -12,7 +12,6 @@ view=ui.View()
 view.background_color = 'white'
 view.flex = 'WH'
 
-
 chordtxt = ui.Label()
 chordtxt.text = chord
 chordtxt.alignment = ui.ALIGN_CENTER
@@ -21,10 +20,8 @@ def quit(sender):
     view.close()
     view.present()
 
-quitbuttom = ui.button()
+quitbuttom = ui.Button()
 quitbutton.title = 'QUIT'
 quitbutton.action = ui.quit
-
-
 
 view.present()
