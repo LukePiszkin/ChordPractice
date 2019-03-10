@@ -106,9 +106,43 @@ minorbutton.border_color = '#0000ff'
 minorbutton.border_width = 5 
 minorbutton.action = minor
 
+quitbuttondom = ui.Button(title = 'EXIT')
+quitbuttondom.frame = (140, 200, 100, 50)
+quitbuttondom.border_color = '#0000ff'
+quitbuttondom.border_width = 10
+
+def domquit(sender):
+         view.remove_subview(quitbuttondom)
+         view.remove_subview(dom_lab)
+         view.add_subview(chordtxt)
+         view.add_subview(resetbutton)
+         view.add_subview(quitbutton)
+         view.add_subview(dombutton)
+
+quitbuttondom.action = minorquit
+
+dom_lab = ui.Label(text = minor_txt)
+dom_lab.frame=(20,30,400,100)
+
+def dom(sender):
+        view.add_subview(dom_lab)
+        view.add_subview(quitbuttondom)
+        view.remove_subview(chordtxt)
+        view.remove_subview(quitbutton)
+        view.remove_subview(resetbutton)
+        view.remove_subview(dombutton)
+
+dombutton = ui.Button(title = 'm (minor)')
+dombutton.frame = (50, 380, 100, 50)
+dombutton.border_color = '#0000ff'
+dombutton.border_width = 5 
+dombutton.action = dom
+
+
 view.add_subview(chordtxt)
 view.add_subview(resetbutton)
 view.add_subview(quitbutton)
 view.add_subview(minorbutton)
+view.add_subview(dombutton)
 view.present(hide_title_bar=True)
 
