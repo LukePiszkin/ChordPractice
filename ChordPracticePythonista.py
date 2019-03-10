@@ -21,7 +21,7 @@ def quit(sender):
     view.present()
 
 resetbutton = ui.Button()
-resetbutton.title = 'reset button'
+resetbutton.title = 'RESET'
 resetbutton.action = quit
 
 view.add_subview(chordtxt)
