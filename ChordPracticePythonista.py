@@ -110,4 +110,5 @@ view.add_subview(chordtxt)
 view.add_subview(resetbutton)
 view.add_subview(quitbutton)
 view.add_subview(minorbutton)
-view.present(hide_title_bar=True
+view.present(hide_title_bar=True)
+
