@@ -7,6 +7,13 @@ randroot = random.randint(0,len(root)-1)
 randscale = random.randint(0,len(scale)-1)
 chord = root[randroot]+scale[randscale]
 
+chordarrayindex = 0
+chordarray = []
+for i in range(1000):
+        randroot = random.randint(0,len(root)-1)
+        randscale = random.randint(0,len(scale)-1)
+        chord = root[randroot]+scale[randscale]
+        chordarray.append(chord)
 
 root = tk.Tk()
 
@@ -27,15 +34,20 @@ sixth_txt = 'An interval consisting of nine semitones'
 minor_seventh_txt = 'An interval consisting of ten semitones'
 major_seventh_txt = 'An interval consisting of eleven semitones'
 
+def refresh():
+    global chordtxt
+    chordtxt.pack_forget()
+    global chordarrayindex
+    chordarrayindex = chordarrayindex + 1
+    chord = chordarray[chordarrayindex]
+    chordtxt = tk.Label(root, width=25, height=3, text=chord, fg='blue',font='Verdana 14 bold')
+    chordtxt.pack_configure(before = resetbutton) 
+
+resetbutton = tk.Button(root, width=50, height=3, text='GENERATE', command=refresh)
+resetbutton.pack()
 
 chordtxt = tk.Label(root, width=25, height=3, text=chord, fg='blue',font='Verdana 14 bold')
-chordtxt.pack()
-
-def refresh():
-    root.destroy()
-    execfile("ChordPractice.py",globals())
-resetbutton = tk.Button(root, width=50, height=3, text='New Chord', command=refresh)
-resetbutton.pack()
+chordtxt.pack_configure(before=resetbutton)
 
 quitbutton = tk.Button(root, width=50, height=3, text='QUIT', command=root.destroy)
 quitbutton.pack()
