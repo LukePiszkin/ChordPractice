@@ -6,7 +6,7 @@ scale = [ '', 'm',  '7',  'maj7', '6', 'm6', '5', '9', 'm9', 'maj9', '11', 'm11'
 randroot = random.randint(0,len(root)-1)
 randscale = random.randint(0,len(scale)-1)
 chord = root[randroot]+scale[randscale]
-print(chord)
+
 
 root = tk.Tk()
 
