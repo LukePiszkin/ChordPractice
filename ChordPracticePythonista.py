@@ -115,7 +115,6 @@ quitbuttondom.border_width = 10
 
 def domquit(sender):
          view.remove_subview(quitbuttondom)
-         view.remove_subview(quitbuttonminor)
          view.remove_subview(dom_lab)
          view.add_subview(chordtxt)
          view.add_subview(resetbutton)
@@ -144,9 +143,47 @@ dombutton.border_color = '#0000ff'
 dombutton.border_width = 5 
 dombutton.action = dom
 
+quitbuttonmaj = ui.Button(title = 'EXIT')
+quitbuttonmaj.frame = (140, 200, 100, 50)
+quitbuttonmaj.border_color = '#0000ff'
+quitbuttonmaj.border_width = 10
+
+def majquit(sender):
+         view.remove_subview(quitbuttonmaj)
+         view.remove_subview(maj_lab)
+         view.add_subview(chordtxt)
+         view.add_subview(resetbutton)
+         view.add_subview(quitbutton)
+         view.add_subview(majbutton)
+         view.add_subview(minorbutton)
+         view.add_subview(dombutton)
+
+quitbuttonmaj.action = majquit
+
+maj_lab = ui.Label(text = major_7_8_11_13_txt, number_of_lines = 0)
+maj_lab.frame=(20,30,350,100)
+
+def maj(sender):
+        view.add_subview(maj_lab)
+        view.add_subview(quitbuttonmaj)
+        view.remove_subview(chordtxt)
+        view.remove_subview(quitbutton)
+        view.remove_subview(resetbutton)
+        view.remove_subview(dombutton)
+        view.remove_subview(minorbutton)
+        view.remove_subview(majbutton)
+
+
+majbutton = ui.Button(title = 'maj7,9,11,13 (major 7)')
+majbutton.frame = (25, 430, 150, 50)
+majbutton.border_color = '#0000ff'
+majbutton.border_width = 5 
+majbutton.action = major
 
 view.add_subview(chordtxt)
 view.add_subview(resetbutton)
 view.add_subview(quitbutton)
 view.add_subview(minorbutton)
 view.add_subview(dombutton)
+view.add_subview(majbutton)
+view.present(hide_title_bar = True)
