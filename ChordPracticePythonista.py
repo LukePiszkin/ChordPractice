@@ -87,6 +87,7 @@ def minorquit(sender):
          view.add_subview(quitbutton)
          view.add_subview(minorbutton)
          view.add_subview(dombutton)
+         view.add_subview(majbutton)
 
 quitbuttonminor.action = minorquit
 
@@ -101,6 +102,7 @@ def minor(sender):
         view.remove_subview(resetbutton)
         view.remove_subview(minorbutton)
         view.remove_subview(dombutton)
+        view.remove_subview(majbutton)
 
 minorbutton = ui.Button(title = 'm (minor)')
 minorbutton.frame = (50, 330, 100, 50)
@@ -121,6 +123,7 @@ def domquit(sender):
          view.add_subview(quitbutton)
          view.add_subview(dombutton)
          view.add_subview(minorbutton)
+         view.add_subview(majbutton)
 
 quitbuttondom.action = domquit
 
@@ -135,6 +138,7 @@ def dom(sender):
         view.remove_subview(resetbutton)
         view.remove_subview(dombutton)
         view.remove_subview(minorbutton)
+        view.remove_subview(majbutton)
 
 
 dombutton = ui.Button(title = '7,9,11,13 (dominant)')
@@ -160,7 +164,7 @@ def majquit(sender):
 
 quitbuttonmaj.action = majquit
 
-maj_lab = ui.Label(text = major_7_8_11_13_txt, number_of_lines = 0)
+maj_lab = ui.Label(text = major_7_9_11_13_txt, number_of_lines = 0)
 maj_lab.frame=(20,30,350,100)
 
 def maj(sender):
@@ -175,10 +179,10 @@ def maj(sender):
 
 
 majbutton = ui.Button(title = 'maj7,9,11,13 (major 7)')
-majbutton.frame = (25, 430, 150, 50)
+majbutton.frame = (20, 430, 160, 50)
 majbutton.border_color = '#0000ff'
 majbutton.border_width = 5 
-majbutton.action = major
+majbutton.action = maj
 
 view.add_subview(chordtxt)
 view.add_subview(resetbutton)
@@ -187,3 +191,5 @@ view.add_subview(minorbutton)
 view.add_subview(dombutton)
 view.add_subview(majbutton)
 view.present(hide_title_bar = True)
+
+hello!
