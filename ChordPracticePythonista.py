@@ -41,6 +41,25 @@ view.flex = 'WH'
 
 chordtxt = ui.Label()
 
+def remove_subview_all(sender):
+        view.remove_subview(chordtxt)
+        view.remove_subview(quitbutton)
+        view.remove_subview(resetbutton)
+        view.remove_subview(minorbutton)
+        view.remove_subview(dombutton)
+        view.remove_subview(majbutton)
+        view.remove_subview(addbutton)
+
+def add_subview_all(sender):
+        view.add_subview(chordtxt)
+        view.add_subview(resetbutton)
+        view.add_subview(quitbutton)
+        view.add_subview(minorbutton)
+        view.add_subview(dombutton)
+        view.add_subview(majbutton)
+        view.add_subview(addbutton)
+
+
 def reset(sender):
         view.remove_subview(chordtxt)
         global chordarrayindex
@@ -82,12 +101,7 @@ quitbuttonminor.border_width = 10
 def minorquit(sender):
          view.remove_subview(quitbuttonminor)
          view.remove_subview(minor_lab)
-         view.add_subview(chordtxt)
-         view.add_subview(resetbutton)
-         view.add_subview(quitbutton)
-         view.add_subview(minorbutton)
-         view.add_subview(dombutton)
-         view.add_subview(majbutton)
+         add_subview_all
 
 quitbuttonminor.action = minorquit
 
@@ -97,12 +111,7 @@ minor_lab.frame=(20,30,400,100)
 def minor(sender):
         view.add_subview(minor_lab)
         view.add_subview(quitbuttonminor)
-        view.remove_subview(chordtxt)
-        view.remove_subview(quitbutton)
-        view.remove_subview(resetbutton)
-        view.remove_subview(minorbutton)
-        view.remove_subview(dombutton)
-        view.remove_subview(majbutton)
+        remove_subview_all
 
 minorbutton = ui.Button(title = 'm (minor)')
 minorbutton.frame = (50, 330, 100, 50)
@@ -124,6 +133,7 @@ def domquit(sender):
          view.add_subview(dombutton)
          view.add_subview(minorbutton)
          view.add_subview(majbutton)
+         view.add_subview(addbutton)
 
 quitbuttondom.action = domquit
 
@@ -139,6 +149,7 @@ def dom(sender):
         view.remove_subview(dombutton)
         view.remove_subview(minorbutton)
         view.remove_subview(majbutton)
+        view.remove_subview(addbutton)
 
 
 dombutton = ui.Button(title = '7,9,11,13 (dominant)')
@@ -161,13 +172,13 @@ def majquit(sender):
          view.add_subview(majbutton)
          view.add_subview(minorbutton)
          view.add_subview(dombutton)
-
+         
 quitbuttonmaj.action = majquit
 
 maj_lab = ui.Label(text = major_7_9_11_13_txt, number_of_lines = 0)
 maj_lab.frame=(20,30,350,100)
 
-def maj(sender):
+def maj(sender):                                                                     ender):
         view.add_subview(maj_lab)
         view.add_subview(quitbuttonmaj)
         view.remove_subview(chordtxt)
@@ -176,13 +187,52 @@ def maj(sender):
         view.remove_subview(dombutton)
         view.remove_subview(minorbutton)
         view.remove_subview(majbutton)
-
+        view.remove_subview(addbutton)
 
 majbutton = ui.Button(title = 'maj7,9,11,13 (major 7)')
 majbutton.frame = (20, 430, 160, 50)
 majbutton.border_color = '#0000ff'
 majbutton.border_width = 5 
 majbutton.action = maj
+
+quitbuttonadd = ui.Button(title = 'EXIT')
+quitbuttonadd.frame = (140, 200, 100, 50)
+quitbuttonadd.border_color = '#0000ff'
+quitbuttonadd.border_width = 10
+
+def addquit(sender):
+         view.remove_subview(quitbuttonadd)
+         view.remove_subview(add_lab)
+         view.add_subview(chordtxt)
+         view.add_subview(resetbutton)
+         view.add_subview(quitbutton)
+         view.add_subview(majbutton)
+         view.add_subview(minorbutton)
+         view.add_subview(dombutton)
+         view.add_subview(addbutton)
+         
+quitbuttonadd.action = addquit
+
+add_lab = ui.Label(text = add_txt, number_of_lines = 0)
+add_lab.frame=(20,30,350,100)
+
+def add(sender):                                                                       ender):
+        view.add_subview(add_lab)
+        view.add_subview(quitbuttonadd)
+        view.remove_subview(chordtxt)
+        view.remove_subview(quitbutton)
+        view.remove_subview(resetbutton)
+        view.remove_subview(dombutton)
+        view.remove_subview(minorbutton)
+        view.remove_subview(majbutton)
+        view.remove_subview(addbutton)
+
+
+addbutton = ui.Button(title = 'add')
+addbutton.frame = (20, 480, 160, 50)
+addbutton.border_color = '#0000ff'
+addbutton.border_width = 5 
+addbutton.action = add
 
 view.add_subview(chordtxt)
 view.add_subview(resetbutton)
@@ -192,4 +242,3 @@ view.add_subview(dombutton)
 view.add_subview(majbutton)
 view.present(hide_title_bar = True)
 
-whole bunch of changes
