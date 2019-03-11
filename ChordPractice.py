@@ -69,7 +69,7 @@ def create_window_dom():
     exit = tk.Button(window, text='EXIT', command=window.destroy)
     exit.pack()
 
-dom = tk.Button(root, text='7,9,11,13 (dominant 7,9,11,13)', command=create_window_dom)
+dom = tk.Button(root, text='7,9,11,13 n/ (dominant 7,9,11,13)', command=create_window_dom)
 dom.pack()
 
 def create_window_maj():
