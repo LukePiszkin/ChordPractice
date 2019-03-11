@@ -81,14 +81,12 @@ def add_subview_all(sender):
         view.add_subview(minorseventhbutton)
         view.add_subview(majorseventhbutton)
 
-
 def reset(sender):
         view.remove_subview(chordtxt)
         global chordarrayindex
         chordarrayindex = chordarrayindex + 1
         chordtxt.text = chordarray[chordarrayindex]
         view.add_subview(chordtxt)
-
 
 chordtxt.text = chordarray[chordarrayindex]
 chordtxt.font = ('Courier', 30)
@@ -97,17 +95,14 @@ chordtxt.border_width = 5
 chordtxt.frame = (90,120,200,75)
 chordtxt.alignment = ui.ALIGN_CENTER
 
-
 def quit(sender):
         view.close()
-
 
 quitbutton = ui.Button(title = 'QUIT')
 quitbutton.frame = (140,250,100,50)
 quitbutton.border_color = '#0000ff'
 quitbutton.border_width = 10
 quitbutton.action = quit   
-
 
 resetbutton = ui.Button(title = 'GENERATE')
 resetbutton.frame = (140, 200, 100, 50)
@@ -292,7 +287,7 @@ def sharpflat(sender):                                                          
         view.add_subview(quitbuttonsharpflat)
         remove_subview_all(sender)
 
-sharpflatbutton = ui.Button(title = 'dim (diminished)')
+sharpflatbutton = ui.Button(title = '+,-,#,b (sharp,flat)')
 sharpflatbutton.frame = (20, 630, 160, 50)
 sharpflatbutton.border_color = '#0000ff'
 sharpflatbutton.border_width = 5 
@@ -324,6 +319,231 @@ minorthirdbutton.border_color = '#0000ff'
 minorthirdbutton.border_width = 5 
 minorthirdbutton.action = minorthird 
 
-add_subview_all(sender)
+quitbuttonmajorthird = ui.Button(title = 'EXIT')
+quitbuttonmajorthird.frame = (140, 200, 100, 50)
+quitbuttonmajorthird.border_color = '#0000ff'
+quitbuttonmajorthird.border_width = 10
+
+def majorthirdquit(sender):
+         view.remove_subview(quitbuttonmajorthird)
+         view.remove_subview(majorthird_lab)
+         add_subview_all(sender)
+         
+quitbuttonmajorthird.action = majorthirdquit
+
+majorthird_lab = ui.Label(text = major_third_txt, number_of_lines = 0)
+majorthird_lab.frame=(20,30,350,100)
+
+def majorthird(sender):                                                                       ender):
+        view.add_subview(majorthird_lab)
+        view.add_subview(quitbuttonmajorthird)
+        remove_subview_all(sender)
+
+majorthirdbutton = ui.Button(title = 'major third')
+majorthirdbutton.frame = (20, 680, 160, 50)
+majorthirdbutton.border_color = '#0000ff'
+majorthirdbutton.border_width = 5 
+majorthirdbutton.action = majorthird 
+
+quitbuttonperfectfourth = ui.Button(title = 'EXIT')
+quitbuttonperfectfourth.frame = (140, 200, 100, 50)
+quitbuttonperfectfourth.border_color = '#0000ff'
+quitbuttonperfectfourth.border_width = 10
+
+def perfectfourthdquit(sender):
+         view.remove_subview(quitbuttonperfectfourth)
+         view.remove_subview(perfectfourth_lab)
+         add_subview_all(sender)
+         
+quitbuttonperfectfourth.action = perfectfourthdquit
+
+perfectfourth_lab = ui.Label(text = perfect_fourth_txt, number_of_lines = 0)
+perfectfourth_lab.frame=(20,30,350,100)
+
+def perfectfourth(sender):                                                                       ender):
+        view.add_subview(perfectfourth_lab)
+        view.add_subview(quitbuttonperfectfourth)
+        remove_subview_all(sender)
+
+perfectfourthdbutton = ui.Button(title = 'perfect fourth')
+perfectfourthbutton.frame = (20, 730, 160, 50)
+perfectfourthdbutton.border_color = '#0000ff'
+perfectfourthdbutton.border_width = 5 
+perfectfourthbutton.action = perfectfourth
+
+quitbuttonflatfifth = ui.Button(title = 'EXIT')
+quitbuttonflatfifth.frame = (140, 200, 100, 50)
+quitbuttonflatfifth.border_color = '#0000ff'
+quitbuttonflatfifth.border_width = 10
+
+def flatfifthquit(sender):
+         view.remove_subview(quitbuttonflatfifth)
+         view.remove_subview(flatfifth_lab)
+         add_subview_all(sender)
+         
+quitbuttonflatfifth.action = flatfifthquit
+
+flatfifth_lab = ui.Label(text = flattened_fifth_txt, number_of_lines = 0)
+flatfifth_lab.frame=(20,30,350,100)
+
+def flatfifth(sender):                                                                       ender):
+        view.add_subview(flatfifth_lab)
+        view.add_subview(quitbuttonflatfifth)
+        remove_subview_all(sender)
+
+flatfifthbutton = ui.Button(title = 'flattened fifth')
+flatfifthdbutton.frame = (20, 780, 160, 50)
+flatfifthbutton.border_color = '#0000ff'
+flatfifthbutton.border_width = 5 
+flatfifthbutton.action = flatfifth 
+
+quitbuttonperfectfifth = ui.Button(title = 'EXIT')
+quitbuttonperfectfifth.frame = (140, 200, 100, 50)
+quitbuttonperfectfifth.border_color = '#0000ff'
+quitbuttonperfectfifth.border_width = 10
+
+def perfectfifthquit(sender):
+         view.remove_subview(quitbuttonperfectfifth)
+         view.remove_subview(perfectfifth_lab)
+         add_subview_all(sender)
+         
+quitbuttonperfectfifth.action = perfectfifthquit
+
+perfectfifth_lab = ui.Label(text = perfect_fifth_txt, number_of_lines = 0)
+perfectfifth_lab.frame=(20,30,350,100)
+
+def perfectfifth(sender):                                                                       ender):
+        view.add_subview(perfectfifth_lab)
+        view.add_subview(quitbuttonperfectfifth)
+        remove_subview_all(sender)
+
+perfectfifthbutton = ui.Button(title = 'perfect fifth')
+perfectfifthdbutton.frame = (20, 830, 160, 50)
+perfectfifthbutton.border_color = '#0000ff'
+perfectfifthbutton.border_width = 5 
+perfectfifthbutton.action = perfectfifth 
+
+quitbuttonaugfifth = ui.Button(title = 'EXIT')
+quitbuttonaugfifth.frame = (140, 200, 100, 50)
+quitbuttonaugfifth.border_color = '#0000ff'
+quitbuttonaugfifth.border_width = 10
+
+def augfifthquit(sender):
+         view.remove_subview(quitbuttonaugfifth)
+         view.remove_subview(augfifth_lab)
+         add_subview_all(sender)
+         
+quitbuttonaugfifth.action = augfifthquit
+
+augfifth_lab = ui.Label(text = augmented_fifth_txt, number_of_lines = 0)
+augfifth_lab.frame=(20,30,350,100)
+
+def augfifth(sender):                                                                       ender):
+        view.add_subview(augfifth_lab)
+        view.add_subview(quitbuttonaugfifth)
+        remove_subview_all(sender)
+
+augfifthbutton = ui.Button(title = 'augmented fifth')
+augfifthdbutton.frame = (20, 880, 160, 50)
+augfifthbutton.border_color = '#0000ff'
+augfifthbutton.border_width = 5 
+augfifthbutton.action = augfifth 
+
+quitbuttonsixth = ui.Button(title = 'EXIT')
+quitbuttonsixth.frame = (140, 200, 100, 50)
+quitbuttonsixth.border_color = '#0000ff'
+quitbuttonsixth.border_width = 10
+
+def sixthquit(sender):
+         view.remove_subview(quitbuttonsixth)
+         view.remove_subview(sixth_lab)
+         add_subview_all(sender)
+         
+quitbuttonsixth.action = sixthquit
+
+sixth_lab = ui.Label(text = sixth_txt, number_of_lines = 0)
+sixth_lab.frame=(20,30,350,100)
+
+def sixth(sender):                                                                       ender):
+        view.add_subview(sixth_lab)
+        view.add_subview(quitbuttonsixth)
+        remove_subview_all(sender)
+
+sixthbutton = ui.Button(title = 'sixth')
+sixthbutton.frame = (100, 580, 160, 50)
+sixthbutton.border_color = '#0000ff'
+sixthbutton.border_width = 5 
+sixthbutton.action = sixth
+
+quitbuttonminorseventh = ui.Button(title = 'EXIT')
+quitbuttonminorseventh.frame = (140, 200, 100, 50)
+quitbuttonminorseventh.border_color = '#0000ff'
+quitbuttonminorseventh.border_width = 10
+
+def minorseventhquit(sender):
+         view.remove_subview(quitbuttonminorseventh)
+         view.remove_subview(minorseventh_lab)
+         add_subview_all(sender)
+         
+quitbuttonminorseventh.action = minorseventhquit
+
+minorseventh_lab = ui.Label(text = minor_seventh_txt, number_of_lines = 0)
+minorseventh_lab.frame=(20,30,350,100)
+
+def minorseventh(sender):                                                                       ender):
+        view.add_subview(minorseventh_lab)
+        view.add_subview(quitbuttonminorseventh)
+        remove_subview_all(sender)
+
+minorseventhbutton = ui.Button(title = 'minor seventh')
+minorseventhbutton.frame = (100, 160, 160, 50)
+minorseventhbutton.border_color = '#0000ff'
+minorseventhbutton.border_width = 5 
+minorseventhbutton.action = minorseventh
+
+quitbuttonmajorseventh = ui.Button(title = 'EXIT')
+quitbuttonmajorseventh.frame = (140, 200, 100, 50)
+quitbuttonmajorseventh.border_color = '#0000ff'
+quitbuttonmajorseventh.border_width = 10
+
+def majorseventhquit(sender):
+         view.remove_subview(quitbuttonmajorseventh)
+         view.remove_subview(majorseventh_lab)
+         add_subview_all(sender)
+         
+quitbuttonmajorseventh.action = majorseventhquit
+
+majorseventh_lab = ui.Label(text = major_seventh_txt, number_of_lines = 0)
+majorseventh_lab.frame=(20,30,350,100)
+
+def majorseventh(sender):                                                                       ender):
+        view.add_subview(majorseventh_lab)
+        view.add_subview(quitbuttonmajorseventh)
+        remove_subview_all(sender)
+
+majorseventhbutton = ui.Button(title = 'major seventh')
+majorseventhbutton.frame = (100, 260, 160, 50)
+majorseventhbutton.border_color = '#0000ff'
+majorseventhbutton.border_width = 5 
+majorseventhbutton.action = majorseventh
+
+view.add_subview(chordtxt)
+view.add_subview(quitbutton)
+view.add_subview(resetbutton)
+view.add_subview(minorbutton)
+view.add_subview(dombutton)
+view.add_subview(majbutton)
+view.add_subview(addbutton)
+view.add_subview(dimbutton)
+view.add_subview(sharpflatbutton)
+view.add_subview(minorthirdbutton)
+view.add_subview(majorthirdbutton)
+view.add_subview(perfectfourthbutton)
+view.add_subview(flatfifthbutton)
+view.add_subview(perfectfifthbutton)
+view.add_subview(augfifthbutton)
+view.add_subview(sixthbutton)
+view.add_subview(minorseventhbutton)
+view.add_subview(majorseventhbutton)
 view.present(hide_title_bar = True)
 
