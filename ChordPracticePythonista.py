@@ -192,3 +192,4 @@ view.add_subview(dombutton)
 view.add_subview(majbutton)
 view.present(hide_title_bar = True)
 
+whole bunch of changes
