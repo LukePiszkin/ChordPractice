@@ -3,7 +3,7 @@ import ui
 
 root = ['A', 'Ab', 'A#', 'B', 'Bb', 'C', 'C#', 'D','Db', 'D#', 'E','Eb', 'F', 'F#', 'G', 'Gb', 'G#']
 
-scale = [ '', '-','°','ø','b5', 'sus2','sus4','sus2b5','add2','add9','madd2','madd9','-2', 'sus2b5','6','-6','6/9','△7sus2','△7sus','maj7sus','△7sus24', '7#9','△7#9', '-7#9','7b9','△7b9','-7b9','-△7b9','+△7b9','+7b9','Øb9','°9','°b9','+7#9','△11','-11','-△11','7#9#11','11','△13','-13','13','-△13', '7', '△7','-#7','-△7','-7','+7','+△7','7#5','7+5','ø','-7b5','°7','7b5']
+scale = [ '', '-','°','ø','b5', 'sus2','sus4','sus2b5','add2','add9','madd2','madd9','-2', 'sus2b5','6','-6','6/9','△7sus2','△7sus','△7sus24', '7#9','△7#9', '-7#9','7b9','△7b9','-7b9','-△7b9','+△7b9','+7b9','Øb9','°9','°b9','+7#9','△11','-11','-△11','7#9#11','11','△13','-13','13','-△13', '7', '△7','-#7','-△7','-7','+7','+△7','7#5','7+5','ø','-7b5','°7','7b5']
 
 randroot = random.randint(0,len(root)-1)
 randscale = random.randint(0,len(scale)-1)
@@ -28,6 +28,7 @@ dim_txt = 'root, minor third, flattened fifth. EX: C°'
 halfdim_txt = 'root, minor third, flattened fifth, minor seventh. EX: Cø'
 sharp_flat_txt = 'sharp (#) or flat (b) the desired note and add it to the root triad. EX: Cb5'
 minor_third_txt = 'An interval consisting of three semitones. '
+
 major_third_txt = 'An interval consisting of four semitones'
 perfect_fourth_txt = 'An interval consisting of five semitones'
 flattened_fifth_txt = 'An interval consisting of six semitones'
@@ -64,7 +65,6 @@ def remove_subview_all(sender):
         view.remove_subview(sixthbutton)
         view.remove_subview(minorseventhbutton)
         view.remove_subview(majorseventhbutton)
-        view.remove_subview(majorbutton)
         view.remove_subview(susbutton)
         view.remove_subview(halfdimbutton)
 
@@ -88,7 +88,6 @@ def add_subview_all(sender):
         view.add_subview(sixthbutton)
         view.add_subview(minorseventhbutton)
         view.add_subview(majorseventhbutton)
-        view.add_subview(majorbutton)
         view.add_subview(susbutton)
         view.add_subview(halfdimbutton)
 
@@ -103,20 +102,20 @@ chordtxt.text = chordarray[chordarrayindex]
 chordtxt.font = ('Courier', 30)
 chordtxt.border_color = '#198054'
 chordtxt.border_width = 5
-chordtxt.frame = (90,40,200,75)
+chordtxt.frame = (90,30,200,75)
 chordtxt.alignment = ui.ALIGN_CENTER
 
 def quit(sender):
         view.close()
 
 quitbutton = ui.Button(title = 'QUIT')
-quitbutton.frame = (140,170,100,50)
+quitbutton.frame = (190,120,100,50)
 quitbutton.border_color = '#0000ff'
 quitbutton.border_width = 10
 quitbutton.action = quit   
 
 resetbutton = ui.Button(title = 'GENERATE')
-resetbutton.frame = (140, 120, 100, 50)
+resetbutton.frame = (90, 120, 100, 50)
 resetbutton.border_color = '#0000ff'
 resetbutton.border_width = 10
 resetbutton.action = reset
@@ -168,6 +167,7 @@ def minor(sender):
         remove_subview_all(sender)
 
 minorbutton = ui.Button(title = '- (minor)')
+
 minorbutton.frame = (20, 250, 160, 50)
 minorbutton.border_color = '#0000ff'
 minorbutton.border_width = 5 
@@ -215,7 +215,7 @@ quitbuttonmaj.action = majquit
 maj_lab = ui.Label(text = major_7_9_11_13_txt, number_of_lines = 0)
 maj_lab.frame=(20,30,350,100)
 
-def maj(sender):                                                                    
+def maj(sender):                                                                   
         view.add_subview(maj_lab)
         view.add_subview(quitbuttonmaj)
         remove_subview_all(sender)
@@ -241,7 +241,7 @@ quitbuttonadd.action = addquit
 add_lab = ui.Label(text = add_txt, number_of_lines = 0)
 add_lab.frame=(20,30,350,100)
 
-def add(sender):                                                                      
+def add(sender):                                                                     
         view.add_subview(add_lab)
         view.add_subview(quitbuttonadd)
         remove_subview_all(sender)
@@ -267,13 +267,13 @@ quitbuttonsus.action = susquit
 sus_lab = ui.Label(text = sus_txt, number_of_lines = 0)
 sus_lab.frame=(20,30,350,100)
 
-def sus(sender):                                                                      
-        view.sus_subview(sus_lab)
-        view.sus_subview(quitbuttonsus)
+def sus(sender):                                                                     
+        view.add_subview(sus_lab)
+        view.add_subview(quitbuttonsus)
         remove_subview_all(sender)
 
 susbutton = ui.Button(title = 'sus (suspended)')
-susbutton.frame = (20, 650, 160, 50)
+susbutton.frame = (20, 200, 160, 50)
 susbutton.border_color = '#0000ff'
 susbutton.border_width = 5 
 susbutton.action = sus
@@ -293,7 +293,7 @@ quitbuttonaug.action = augquit
 aug_lab = ui.Label(text = aug_txt, number_of_lines = 0)
 aug_lab.frame=(20,30,350,100)
 
-def aug(sender):                                                                      
+def aug(sender):                                                                     
         view.add_subview(aug_lab)
         view.add_subview(quitbuttonaug)
         remove_subview_all(sender)
@@ -319,7 +319,7 @@ quitbuttondim.action = dimquit
 dim_lab = ui.Label(text = dim_txt, number_of_lines = 0)
 dim_lab.frame=(20,30,350,100)
 
-def dim(sender):                                                                      
+def dim(sender):                                                                     
         view.add_subview(dim_lab)
         view.add_subview(quitbuttondim)
         remove_subview_all(sender)
@@ -351,7 +351,7 @@ def halfdim(sender):
         remove_subview_all(sender)
 
 halfdimbutton = ui.Button(title = 'ø (half diminished)')
-halfdimbutton.frame = (200, 650, 160, 50)
+halfdimbutton.frame = (200, 200, 160, 50)
 halfdimbutton.border_color = '#0000ff'
 halfdimbutton.border_width = 5 
 halfdimbutton.action = halfdim
@@ -371,12 +371,13 @@ quitbuttonsharpflat.action = sharpflatquit
 sharpflat_lab = ui.Label(text = sharp_flat_txt, number_of_lines = 0)
 sharpflat_lab.frame=(20,30,350,100)
 
-def sharpflat(sender):                                                                      
+def sharpflat(sender):                                                                     
         view.add_subview(sharpflat_lab)
         view.add_subview(quitbuttonsharpflat)
         remove_subview_all(sender)
 
 sharpflatbutton = ui.Button(title = '#,b (sharp,flat)')
+
 sharpflatbutton.frame = (20, 550, 160, 50)
 sharpflatbutton.border_color = '#0000ff'
 sharpflatbutton.border_width = 5 
@@ -527,7 +528,7 @@ quitbuttonaugfifth.action = augfifthquit
 augfifth_lab = ui.Label(text = augmented_fifth_txt, number_of_lines = 0)
 augfifth_lab.frame=(20,30,350,100)
 
-def augfifth(sender):                                                                     
+def augfifth(sender):                                                                    
         view.add_subview(augfifth_lab)
         view.add_subview(quitbuttonaugfifth)
         remove_subview_all(sender)
@@ -553,7 +554,7 @@ quitbuttonsixth.action = sixthquit
 sixth_lab = ui.Label(text = sixth_txt, number_of_lines = 0)
 sixth_lab.frame=(20,30,350,100)
 
-def sixth(sender):                                                                      
+def sixth(sender):                                                                     
         view.add_subview(sixth_lab)
         view.add_subview(quitbuttonsixth)
         remove_subview_all(sender)
@@ -579,7 +580,7 @@ quitbuttonminorseventh.action = minorseventhquit
 minorseventh_lab = ui.Label(text = minor_seventh_txt, number_of_lines = 0)
 minorseventh_lab.frame=(20,30,350,100)
 
-def minorseventh(sender):                                                                      
+def minorseventh(sender):                                                                     
         view.add_subview(minorseventh_lab)
         view.add_subview(quitbuttonminorseventh)
         remove_subview_all(sender)
@@ -605,7 +606,7 @@ quitbuttonmajorseventh.action = majorseventhquit
 majorseventh_lab = ui.Label(text = major_seventh_txt, number_of_lines = 0)
 majorseventh_lab.frame=(20,30,350,100)
 
-def majorseventh(sender):                                                                      
+def majorseventh(sender):                                                                     
         view.add_subview(majorseventh_lab)
         view.add_subview(quitbuttonmajorseventh)
         remove_subview_all(sender)
@@ -635,7 +636,7 @@ view.add_subview(augfifthbutton)
 view.add_subview(sixthbutton)
 view.add_subview(minorseventhbutton)
 view.add_subview(majorseventhbutton)
-view.add_subview(majorbutton)
 view.add_subview(susbutton)
 view.add_subview(halfdimbutton)
+
 view.present(hide_title_bar = True)
