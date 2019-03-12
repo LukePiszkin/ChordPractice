@@ -2,7 +2,8 @@ import random
 import ui 
 
 root = ['A', 'Ab', 'A#', 'B', 'Bb', 'C', 'C#', 'D','Db', 'D#', 'E','Eb', 'F', 'F#', 'G', 'Gb', 'G#']
-scale = [ '', 'm',  '7',  'maj7', '6', 'm6', '5', '9', 'm9', 'maj9', '11', 'm11', '13', 'm13', 'add2','11dim9','13dim11','13dim9','6/9','6aug5', '6dim5', '7#5', '7#9', '7+5','7-5','7-9', '7aug', '7aug5', '7b5', '7b9','7dim5', '7dim9', '7sus', '7sus2', '9aug5', '9dim5','9sus', 'add2','add4','add9', '6add9', 'aug','dim','dim11','dim13','dim7','dim9','m11dim9','m13dim11','m13dim9','m6','m7','m7b5','m7dim5','m7dim9','m9','maj11','maj13','maj9','mb5','mdim11','mdim13','mdim9','mmaj7','sus','sus2']
+
+scale = [ '', '-','°','ø','b5', 'sus2','sus4','sus2b5','add2','add9','madd2','madd9','-2', 'sus2b5','6','-6','6/9','△7sus2','△7sus','maj7sus','△7sus24', '7#9','△7#9', '-7#9','7b9','△7b9','-7b9','-△7b9','+△7b9','+7b9','Øb9','°9','°b9','+7#9','△11','-11','-△11','7#9#11','11','△13','-13','13','-△13', '7', '△7','-#7','-△7','-7','+7','+△7','7#5','7+5','ø','-7b5','°7','7b5']
 
 randroot = random.randint(0,len(root)-1)
 randscale = random.randint(0,len(scale)-1)
@@ -16,15 +17,17 @@ for i in range(1000):
         chord = root[randroot]+scale[randscale]
         chordarray.append(chord)
 
-
-minor_txt = 'root, minor third, perfect fifth'
-dom_txt = 'root, major third, pefect fifth, minor seventh, (add 9), (add 9,11), (add 9,11,13)'
-major_7_9_11_13_txt = 'root, major third, perfect fifth, major seventh, (add 9), (add 9,11), (add 9,11,13)'
-add_txt = 'take the root triad and add the desired note in the scale'
-aug_txt = 'root, major third, augmented fifth'
-dim_txt = 'root, minor third, flattened fifth'
-sharp_flat_txt = 'sharp (+,#) or flat (-,b) the desired note and add it to the root triad'
-minor_third_txt = 'An interval consisting of three semitones'
+major_txt = 'root, major third, perfect fifth. EX: C'      
+minor_txt = 'root, minor third, perfect fifth. EX: C-'
+dom_txt = 'root, major third, pefect fifth, minor seventh, (add 9), (add 9,11), (add 9,11,13). EX: C13'
+major_7_9_11_13_txt = 'root, major third, perfect fifth, major seventh, (add 9), (add 9+11), (add 9+11+13). EX: C△13'
+add_txt = 'take the root triad and add the desired note in the scale. EX: Cadd2'
+sus_txt = 'root add"2,4,24" perfect fifth. EX: Csus2, Note: Csus is implied Csus4.'
+aug_txt = 'root, major third, augmented fifth. EX: C+'
+dim_txt = 'root, minor third, flattened fifth. EX: C°'
+halfdim_txt = 'root, minor third, flattened fifth, minor seventh. EX: Cø'
+sharp_flat_txt = 'sharp (#) or flat (b) the desired note and add it to the root triad. EX: Cb5'
+minor_third_txt = 'An interval consisting of three semitones. '
 major_third_txt = 'An interval consisting of four semitones'
 perfect_fourth_txt = 'An interval consisting of five semitones'
 flattened_fifth_txt = 'An interval consisting of six semitones'
@@ -112,6 +115,32 @@ resetbutton.border_color = '#0000ff'
 resetbutton.border_width = 10
 resetbutton.action = reset
 
+quitbuttonmajor = ui.Button(title = 'EXIT')
+quitbuttonmajor.frame = (140, 200, 100, 50)
+quitbuttonmajor.border_color = '#0000ff'
+quitbuttonmajor.border_width = 10
+
+def majorquit(sender):
+         view.remove_subview(quitbuttonmajor)
+         view.remove_subview(major_lab)
+         add_subview_all(sender)
+
+quitbuttonmajor.action = majorquit
+
+major_lab = ui.Label(text = major_txt)
+major_lab.frame=(20,30,400,100)
+
+def major(sender):
+        view.add_subview(major_lab)
+        view.add_subview(quitbuttonmajor)
+        remove_subview_all(sender)
+
+majorbutton = ui.Button(title = 'M (major)')
+majorbutton.frame = (20, 200, 160, 50)
+majorbutton.border_color = '#0000ff'
+majorbutton.border_width = 5 
+majorbutton.action = major
+
 quitbuttonminor = ui.Button(title = 'EXIT')
 quitbuttonminor.frame = (140, 200, 100, 50)
 quitbuttonminor.border_color = '#0000ff'
@@ -132,7 +161,7 @@ def minor(sender):
         view.add_subview(quitbuttonminor)
         remove_subview_all(sender)
 
-minorbutton = ui.Button(title = 'm (minor)')
+minorbutton = ui.Button(title = '- (minor)')
 minorbutton.frame = (20, 250, 160, 50)
 minorbutton.border_color = '#0000ff'
 minorbutton.border_width = 5 
@@ -185,7 +214,7 @@ def maj(sender):
         view.add_subview(quitbuttonmaj)
         remove_subview_all(sender)
 
-majbutton = ui.Button(title = 'maj7,9,11,13 (major 7)')
+majbutton = ui.Button(title = '△7,9,11,13 (major 7)')
 majbutton.frame = (20, 350, 160, 50)
 majbutton.border_color = '#0000ff'
 majbutton.border_width = 5 
@@ -217,6 +246,32 @@ addbutton.border_color = '#0000ff'
 addbutton.border_width = 5 
 addbutton.action = add
 
+quitbuttonsus = ui.Button(title = 'EXIT')
+quitbuttonsus.frame = (140, 200, 100, 50)
+quitbuttonsus.border_color = '#0000ff'
+quitbuttonsus.border_width = 10
+
+def susquit(sender):
+         view.remove_subview(quitbuttonsus)
+         view.remove_subview(sus_lab)
+         sus_subview_all(sender)
+
+quitbuttonsus.action = susquit
+
+sus_lab = ui.Label(text = sus_txt, number_of_lines = 0)
+sus_lab.frame=(20,30,350,100)
+
+def sus(sender):                                                                      
+        view.sus_subview(sus_lab)
+        view.sus_subview(quitbuttonsus)
+        remove_subview_all(sender)
+
+susbutton = ui.Button(title = 'sus (suspended)')
+susbutton.frame = (20, 650, 160, 50)
+susbutton.border_color = '#0000ff'
+susbutton.border_width = 5 
+susbutton.action = sus
+
 quitbuttonaug = ui.Button(title = 'EXIT')
 quitbuttonaug.frame = (140, 200, 100, 50)
 quitbuttonaug.border_color = '#0000ff'
@@ -237,7 +292,7 @@ def aug(sender):
         view.add_subview(quitbuttonaug)
         remove_subview_all(sender)
 
-augbutton = ui.Button(title = 'aug (augmented)')
+augbutton = ui.Button(title = '+ (augmented)')
 augbutton.frame = (20, 450, 160, 50)
 augbutton.border_color = '#0000ff'
 augbutton.border_width = 5 
@@ -263,11 +318,37 @@ def dim(sender):
         view.add_subview(quitbuttondim)
         remove_subview_all(sender)
 
-dimbutton = ui.Button(title = 'dim (diminished)')
+dimbutton = ui.Button(title = '° (diminished)')
 dimbutton.frame = (20, 500, 160, 50)
 dimbutton.border_color = '#0000ff'
 dimbutton.border_width = 5 
 dimbutton.action = dim
+
+quitbuttonhalfdim = ui.Button(title = 'EXIT')
+quitbuttonhalfdim.frame = (140, 200, 100, 50)
+quitbuttonhalfdim.border_color = '#0000ff'
+quitbuttonhalfdim.border_width = 10
+
+def halfdimquit(sender):
+         view.remove_subview(quitbuttonhalfdim)
+         view.remove_subview(halfdim_lab)
+         add_subview_all(sender)
+
+quitbuttonhalfdim.action = halfdimquit
+
+halfdim_lab = ui.Label(text = halfdim_txt, number_of_lines = 0)
+halfdim_lab.frame=(20,30,350,100)
+
+def halfdim(sender):                                                                      
+        view.add_subview(halfdim_lab)
+        view.add_subview(quitbuttonhalfdim)
+        remove_subview_all(sender)
+
+halfdimbutton = ui.Button(title = 'ø (half diminished)')
+halfdimbutton.frame = (200, 650, 160, 50)
+halfdimbutton.border_color = '#0000ff'
+halfdimbutton.border_width = 5 
+halfdimbutton.action = halfdim
 
 quitbuttonsharpflat = ui.Button(title = 'EXIT')
 quitbuttonsharpflat.frame = (140, 200, 100, 50)
@@ -289,7 +370,7 @@ def sharpflat(sender):
         view.add_subview(quitbuttonsharpflat)
         remove_subview_all(sender)
 
-sharpflatbutton = ui.Button(title = '+,-,#,b (sharp,flat)')
+sharpflatbutton = ui.Button(title = '#,b (sharp,flat)')
 sharpflatbutton.frame = (20, 550, 160, 50)
 sharpflatbutton.border_color = '#0000ff'
 sharpflatbutton.border_width = 5 
