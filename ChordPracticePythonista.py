@@ -64,6 +64,9 @@ def remove_subview_all(sender):
         view.remove_subview(sixthbutton)
         view.remove_subview(minorseventhbutton)
         view.remove_subview(majorseventhbutton)
+        view.remove_subview(majorbutton)
+        view.remove_subview(susbutton)
+        view.remove_subview(halfdimbutton)
 
 def add_subview_all(sender):
         view.add_subview(chordtxt)
@@ -85,6 +88,9 @@ def add_subview_all(sender):
         view.add_subview(sixthbutton)
         view.add_subview(minorseventhbutton)
         view.add_subview(majorseventhbutton)
+        view.add_subview(majorbutton)
+        view.add_subview(susbutton)
+        view.add_subview(halfdimbutton)
 
 def reset(sender):
         view.remove_subview(chordtxt)
@@ -254,7 +260,7 @@ quitbuttonsus.border_width = 10
 def susquit(sender):
          view.remove_subview(quitbuttonsus)
          view.remove_subview(sus_lab)
-         sus_subview_all(sender)
+         add_subview_all(sender)
 
 quitbuttonsus.action = susquit
 
@@ -629,4 +635,7 @@ view.add_subview(augfifthbutton)
 view.add_subview(sixthbutton)
 view.add_subview(minorseventhbutton)
 view.add_subview(majorseventhbutton)
+view.add_subview(majorbutton)
+view.add_subview(susbutton)
+view.add_subview(halfdimbutton)
 view.present(hide_title_bar = True)
